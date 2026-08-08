@@ -1,0 +1,14 @@
+{
+  "name": "taif-al-arwo-law",
+  "version": "1.0.0",
+  "description": "Website for Lawyer Taif Al-arwo Law Firm",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
