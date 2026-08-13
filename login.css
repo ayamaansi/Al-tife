@@ -1,0 +1,171 @@
+/* ==========================================================================
+   Login Page Styles - Taif Al-Arwi Identity
+   ========================================================================== */
+
+.login-page-body {
+    background-color: var(--beige-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--font-ar);
+}
+
+.login-container {
+    width: 100%;
+    max-width: 440px;
+    padding: 20px;
+    z-index: 10;
+}
+
+.login-card {
+    background-color: var(--primary-bg);
+    border: 1.5px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-logo {
+    height: 60px;
+    margin-bottom: 1rem;
+    object-fit: contain;
+}
+
+.login-header h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--brand-dark);
+    margin-bottom: 0.4rem;
+}
+
+.login-header p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon i {
+    position: absolute;
+    right: 15px;
+    color: var(--text-muted);
+    width: 20px;
+    height: 20px;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 3rem; /* مساحة للأيقونة يميناً */
+    border: 1px solid var(--border-color);
+    background-color: var(--beige-light);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: var(--font-ar);
+    color: var(--text-primary);
+    transition: 0.2s;
+}
+
+.input-with-icon input:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    background-color: var(--primary-bg);
+    box-shadow: 0 0 0 3px rgba(19, 63, 46, 0.1);
+}
+
+.btn-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background-color: var(--brand-primary);
+    color: #FFFFFF;
+    border: none;
+    padding: 0.85rem;
+    border-radius: var(--radius-sm);
+    font-size: 1.05rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.25s;
+    margin-top: 0.5rem;
+    font-family: var(--font-ar);
+}
+
+.btn-login:hover {
+    background-color: var(--brand-light);
+    transform: translateY(-2px);
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.login-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.login-footer a:hover {
+    color: var(--brand-primary);
+}
+
+/* التوافق مع الدارك مود */
+[data-theme="dark"] .login-card {
+    background-color: #133F2E;
+    border-color: rgba(233, 177, 139, 0.25);
+}
+
+[data-theme="dark"] .login-header h2 {
+    color: #FDFBF7;
+}
+
+[data-theme="dark"] .input-with-icon input {
+    background-color: #0D2B1F;
+    border-color: rgba(233, 177, 139, 0.25);
+    color: #FDFBF7;
+}
+
+[data-theme="dark"] .btn-login {
+    background-color: var(--gold-primary);
+    color: #0D2B1F;
+}
+[data-theme="dark"] .btn-login:hover {
+    background-color: var(--gold-dark);
+}

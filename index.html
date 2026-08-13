@@ -3,176 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتب المحامية طيف العروي للمحاماة والاستشارات القانونية | Taif Al-Arwo Law Firm</title>
+    <title>مكتب المحامية طيف العروي للمحاماة والاستشارات القانونية | Taif Al-arwo law firm</title>
     
-    <!-- Meta Tags for SEO -->
-    <meta name="description" content="مكتب قانوني متخصص يقدم خدمات قانونية متكاملة للأفراد والشركات والمستثمرين في المملكة العربية السعودية وفق أعلى المعايير المهنية. شريكك القانوني الموثوق.">
-    <meta name="keywords" content="محاماة, استشارات قانونية, تأسيس شركات, الاستثمار الأجنبي, عقود تجارية, حوكمة وامتثال, المحامية طيف العروي, طيف العروي">
-    <meta name="author" content="مكتب المحامية طيف العروي">
+    <meta name="description" content="مكتب قانوني متخصص يقدم خدمات قانونية متكاملة للأفراد والشركات والمستثمرين في المملكة العربية السعودية وفق أعلى المعايير المهنية.">
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="مكتب المحامية طيف العروي للمحاماة والاستشارات القانونية">
-    <meta property="og:description" content="نجمع بين الخبرة القانونية والنهج العملي لتقديم حلول فعالة تحقق أفضل النتائج بما يحقق تطلعات عملائنا.">
-    <meta property="og:image" content="./logo.png">
-    
-    <!-- Google Fonts — Web fallback for brand fonts (Decotype Naskh / Bahnschrift are Windows system fonts) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons CDN -->
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <!-- Custom Style Sheet -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Global Fixed Watermark -->
+    <!-- خلفية الشعار المائي الثابتة -->
     <div class="global-fixed-watermark">
-        <img src="./bg-watermark.png" alt="" aria-hidden="true">
+        <img src="bg-watermark.png" alt="" aria-hidden="true">
     </div>
-
 
     <!-- Header Navbar -->
     <header class="main-header">
         <div class="header-container">
-            <!-- Brand Logo and Text -->
-            <a href="#hero" class="brand">
-                <img src="./logo.png" alt="شعار المحامية طيف العروي" class="logo-img">
-                <span class="brand-tagline">شريكك القانوني الموثوق للأفراد والشركات والمستثمرين</span>
-            </a>
+            
+            <!-- 1. اليمين: الشعار فقط -->
+            <div class="header-right-group">
+                <a href="index.html" class="brand">
+                    <img src="logo.png" alt="شعار المحامية طيف العروي" class="logo-img">
+                    <div class="brand-text">
+                        <span class="brand-title">مكتب المحامية طيف العروي للمحاماة والاستشارات القانونية</span>
+                        <span class="brand-en">Taif Al-arwo law firm</span>
+                    </div>
+                </a>
+            </div>
 
-            <!-- Toggle Button for Mobile Menu -->
+            <!-- زر الموبايل للـ 3 شرط -->
             <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="فتح القائمة">
                 <i data-lucide="menu"></i>
             </button>
 
-            <!-- Navigation Links -->
+            <!-- 2. اليسار: القوائم، أيقونة المود، ثم زر التواصل -->
             <nav class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
-                    <li><a href="#hero" class="nav-link active">الرئيسية</a></li>
-                    <!-- Dropdown List for Services -->
+                    <li><a href="index.html" class="nav-link active">الرئيسية</a></li>
+                    <li><a href="#about" class="nav-link">من نحن</a></li>
                     <li class="dropdown">
-                        <a href="#services" class="nav-link dropdown-toggle" id="services-toggle">
+                        <a href="services.html" class="nav-link dropdown-toggle">
                             خدماتنا <i data-lucide="chevron-down" class="chevron-icon"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#services" data-tab="corporate" class="dropdown-item">خدمات الشركات</a></li>
-                            <li><a href="#services" data-tab="individuals" class="dropdown-item">خدمات الأفراد</a></li>
+                            <li><a href="services.html?tab=corporate" class="dropdown-item">خدمات الشركات</a></li>
+                            <li><a href="services.html?tab=individuals" class="dropdown-item">خدمات الأفراد</a></li>
                         </ul>
                     </li>
-                    <li><a href="#articles" class="nav-link">المقالات</a></li>
-
+                    <li><a href="articles.html" class="nav-link">المقالات</a></li>
+                    
+                    <!-- أيقونة تغيير المود أصبحت هنا قبل زر التواصل -->
+                    <li>
+                        <button id="theme-toggle" class="theme-toggle-btn" aria-label="تبديل المظهر">
+                            <i data-lucide="moon" id="theme-icon"></i>
+                        </button>
+                    </li>
+<!-- زر تسجيل الدخول -->
+<li>
+    <a href="login.html" class="nav-link" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+        <i data-lucide="log-in"></i>
+        <span>دخول</span>
+    </a>
+</li>
+                    <!-- زر التواصل البارز في أقصى اليسار -->
+                    <li>
+                        <a href="#contact" class="nav-cta-btn-styled">
+                            <span>تواصل واحصل علي استشارتك</span>
+                            <i data-lucide="arrow-left"></i>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
-        
-        <!-- Hero & Why Us Wrapper with background image -->
-        <div class="hero-why-wrapper">
-            
-            <!-- Hero Section (الرئيسية) -->
-            <section id="hero" class="hero-section">
-                <!-- Watermark Logo Background -->
-                <div class="hero-watermark">
-                    <img src="./watermark.png" alt="" aria-hidden="true" class="hero-watermark-img">
-                </div>
+        <!-- Hero Section With Verified Badge -->
+        <section id="hero" class="hero-section hero-with-bg">
+            <div class="container hero-container">
+                <div class="hero-content-center">
+                    
+                    <div class="verified-badge-wrapper">
+                        <span class="pulse-dot"></span>
+                        <i data-lucide="shield-check" class="verified-icon"></i>
+                        <span class="badge-text">المحامية طيف العروي • صرح قانوني معتمد</span>
+                    </div>
 
-                <div class="container hero-container">
-                    <div class="hero-content">
-                        <div class="hero-text-col">
-                            <div class="hero-quote">
-                                <span class="hero-quote-bar"></span>
-                                <p class="hero-quote-text">ما يميزنا <i data-lucide="help-circle" class="why-us-icon"></i></p>
-                            </div>
-                        </div>
-                        <div class="hero-actions">
-                            <a href="#contact" class="btn btn-primary">تواصل واحصل على استشارتك <i data-lucide="arrow-left-right" class="btn-icon"></i></a>
-                        </div>
+                    <h1 class="hero-main-title">شريكك القانوني الموثوق للأفراد والشركات والمستثمرين</h1>
+                    <p class="hero-main-desc">
+                        نجمع بين الخبرة القانونية والنهج العملي لتقديم حلول فعالة تحقق أفضل النتائج بما يحقق تطلعات عملائنا.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="services.html" class="btn btn-primary">خدماتنا <i data-lucide="arrow-up-left"></i></a>
+                        <a href="#contact" class="btn btn-secondary btn-hero-white">تواصل معنا <i data-lucide="arrow-left"></i></a>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Section: ما يميزنا (moved here) -->
-                <section id="why-us" class="why-us-section">
-                    <div class="container">
-                        <div class="why-us-content">
-                            <div class="hero-quote" style="margin-bottom: 0;">
-                                <span class="hero-quote-bar"></span>
-                                <p class="hero-quote-text">نجمع بين الخبرة القانونية والنهج العملي لتقديم حلول فعالة تحقق أفضل النتائج بما يحقق تطلعات عملائنا.</p>
-                            </div>
-                        </div>
+        <!-- Section: ما يميزنا -->
+        <section id="why-us" class="why-us-section">
+            <div class="container">
+                <div class="why-us-grid">
+                    <div class="why-us-text-col">
+                        <h2 class="section-title-start">ما يميزنا</h2>
+                        <p class="why-us-description">
+                            نقدم خدمات قانونية ترتكز على الخبرة والدقة، وفهم عميق للأنظمة المعمول بها في المملكة العربية السعودية. ونلتزم بتقديم حلول قانونية موثوقة تحمي مصالح عملائنا وفق أعلى المعايير المهنية.
+                        </p>
+                        <a href="services.html" class="link-with-arrow">اعرف أكثر عن خدماتنا ←</a>
                     </div>
-                </section>
-
-            </section>
-
-            <!-- Quick Features Banner (moved here) -->
-            <div class="hero-features-bar">
-                <div class="container features-bar-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon"><i data-lucide="scale"></i></div>
-                        <div>
-                            <h4>أعلى المعايير المهنية</h4>
-                            <p>نلتزم بالدقة والنزاهة القانونية</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i data-lucide="shield-check"></i></div>
-                        <div>
-                            <h4>حماية مصالح عملائنا</h4>
-                            <p>أمان قانوني متكامل لأعمالك</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i data-lucide="award"></i></div>
-                        <div>
-                            <h4>خبرة وكفاءة عالية</h4>
-                            <p>فهم عميق للأنظمة السعودية</p>
+                    <div class="why-us-img-col">
+                        <div class="calm-image-frame">
+                            <img src="why-us-calm.jpg" alt="خلفية هادئة تعبر عن الدقة والاحترافية" class="calm-img">
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
+        </section>
 
-        <!-- Section: من نحن (About Us) -->
+        <!-- Section: السؤال وشريك نجاح الأعمال -->
+        <section class="question-partner-section">
+            <div class="container">
+                <div class="qp-grid">
+                    <div class="floating-card-container">
+                        <img src="hero-consultation.jpg" alt="جلسة استشارية قانونية" class="bg-consultation-img">
+                        
+                        <div class="floating-q-card">
+                            <div class="q-card-header">
+                                <span class="q-card-title">كيف أبدأ تأسيس شركتي؟</span>
+                                <div class="q-card-icon"><i data-lucide="help-circle"></i></div>
+                            </div>
+                            <div class="q-card-divider"></div>
+                            <p class="q-card-desc">
+                                ابدأ بحجز جلسة استشارية معنا، ندرس نشاطك ونحدد لك الهيكل القانوني الأمثل لشركتك
+                            </p>
+                            <a href="https://wa.me/966536939093?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D9%8A%D8%A9%20%D9%84%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D8%B4%D8%B1%D9%83%D8%AA%D9%8A" target="_blank" class="btn btn-q-card-action">
+                                <i data-lucide="calendar"></i> احجز استشارتك
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="partner-text-wrapper">
+                        <h3 class="partner-title">شريك نجاح أعمالك</h3>
+                        <p class="partner-desc">
+                            نقدم الدعم القانوني للشركات والمستثمرين بروح الشراكة، من خلال حلول قانونية مدروسة تواكب احتياجات أعمالكم، وتحمي مصالحكم، وتدعم استدامة نموكم.
+                        </p>
+                        <a href="services.html?tab=corporate" class="btn btn-outline-green">تصفح الخدمات</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: لمحة عن الخدمات -->
+        <section class="services-preview-section">
+            <div class="container">
+                <div class="services-header-flex">
+                    <h3 class="section-title-start">خدماتنا القانونية</h3>
+                    <a href="services.html" class="btn-text-link">
+                        <span class="btn-text">عرض جميع الخدمات</span>
+                        <i data-lucide="arrow-left" class="btn-icon"></i>
+                    </a>
+                </div>
+
+                <div class="services-grid" id="home-services-preview"></div>
+            </div>
+        </section>
+
+        <!-- Section: القطاعات التي نخدمها -->
+        <section id="sectors" class="sectors-section">
+            <div class="container">
+                <div class="section-header-center">
+                    <h3 class="section-title">القطاعات التي نخدمها</h3>
+                </div>
+
+                <div class="sectors-grid">
+                    <div class="sector-card">
+                        <div class="sector-icon"><i data-lucide="user"></i></div>
+                        <h4 class="sector-title">الأفراد</h4>
+                    </div>
+                    <div class="sector-card">
+                        <div class="sector-icon"><i data-lucide="building-2"></i></div>
+                        <h4 class="sector-title">الشركات</h4>
+                    </div>
+                    <div class="sector-card">
+                        <div class="sector-icon"><i data-lucide="store"></i></div>
+                        <h4 class="sector-title">المنشآت الصغيرة والمتوسطة</h4>
+                    </div>
+                    <div class="sector-card">
+                        <div class="sector-icon"><i data-lucide="globe"></i></div>
+                        <h4 class="sector-title">المستثمرون الأجانب والمحليون</h4>
+                    </div>
+                    <div class="sector-card">
+                        <div class="sector-icon"><i data-lucide="factory"></i></div>
+                        <h4 class="sector-title">القطاع الصناعي</h4>
+                    </div>
+                    <div class="sector-card">
+                        <div class="sector-icon"><i data-lucide="users"></i></div>
+                        <h4 class="sector-title">الجمعيات</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: من نحن -->
         <section id="about" class="about-section">
             <div class="container">
                 <div class="section-header-center">
-                    <h2 class="section-title">من نحن</h2>
+                    <h3 class="section-title">من نحن</h3>
                 </div>
                 
-                <div class="about-main-card">
-                    <div class="about-content-top about-text-box">
-                        <p class="about-description" style="font-size: 1.4rem; font-weight: 700; color: var(--brand-dark);">
-                            مكتب قانوني متخصص يقدم خدمات قانونية متكاملة للأفراد والشركات والمستثمرين  <br>
-                            وفق أعلى المعايير المهنية ويضم نخبة من الكفاءات القانونية.
-                        </p>
-                    </div>
+                <div class="about-box-card">
+                    <p class="about-lead">
+                        مكتب قانوني متخصص يقدم خدمات قانونية متكاملة للأفراد والشركات والمستثمرين وفق أعلى المعايير المهنية ويضم نخبة من الكفاءات القانونية.
+                    </p>
 
-                    <div class="about-vision-mission-grid">
-                        <!-- كرت الرؤية -->
-                        <div class="vision-card">
-                            <div class="card-icon">
-                                <i data-lucide="eye"></i>
-                            </div>
-                            <h4 class="card-title">الرؤية</h4>
-                            <p class="card-desc" style="font-weight: 700;">
+                    <div class="vision-mission-grid">
+                        <div class="vm-card">
+                            <h4 class="vm-title"><i data-lucide="eye"></i> الرؤية</h4>
+                            <p class="vm-desc">
                                 أن نكون من المكاتب القانونية الرائدة في المملكة العربية السعودية من خلال تقديم خدمات قانونية تعزز الثقة وترتقي بتجربة العميل وتسهم في ترسيخ العدالة وسيادة القانون.
                             </p>
                         </div>
 
-                        <!-- كرت الرسالة -->
-                        <div class="mission-card">
-                            <div class="card-icon">
-                                <i data-lucide="compass"></i>
-                            </div>
-                            <h4 class="card-title">الرسالة</h4>
-                            <p class="card-desc" style="font-weight: 700;">
+                        <div class="vm-card">
+                            <h4 class="vm-title"><i data-lucide="compass"></i> الرسالة</h4>
+                            <p class="vm-desc">
                                 تقديم حلول قانونية متكاملة ترتكز على الخبرة والاحترافية، بما يحفظ حقوق عملائنا، ويحمي مصالحهم، ويعزز الثقة من خلال الالتزام بأعلى المعايير المهنية ومبادئ العدالة.
                             </p>
                         </div>
@@ -181,395 +245,112 @@
             </div>
         </section>
 
-
-
-        <!-- Section: Q&A + Partner Support -->
-        <section class="partner-qa-section">
-            <div class="container">
-                <div class="partner-qa-grid">
-                    <!-- Left: Q&A Box -->
-                    <div class="qa-box">
-                        <div class="qa-header">
-                            <span class="qa-badge"><i data-lucide="help-circle"></i> أسئلة شائعة وإجابات قانونية</span>
-                        </div>
-                        <div class="qa-body">
-                            <div class="accordion-container">
-                                <!-- Accordion Item 1 (Active by default) -->
-                                <div class="accordion-item active">
-                                    <button class="accordion-trigger">
-                                        <span class="question-text">كيف أبدأ تأسيس شركتي في المملكة؟</span>
-                                        <i data-lucide="plus" class="accordion-icon"></i>
-                                    </button>
-                                    <div class="accordion-content">
-                                        <p class="answer">
-                                            ابدأ بحجز جلسة استشارية معنا - ندرس نشاطك ونحدد لك الهيكل القانوني الأمثل لشركتك ونمضي معك خطوة بخطوة حتى إصدار السجل التجاري والتراخيص.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Accordion Item 2 -->
-                                <div class="accordion-item">
-                                    <button class="accordion-trigger">
-                                        <span class="question-text">ما هي متطلبات الاستثمار الأجنبي المباشر؟</span>
-                                        <i data-lucide="plus" class="accordion-icon"></i>
-                                    </button>
-                                    <div class="accordion-content">
-                                        <p class="answer">
-                                            يتطلب إصدار ترخيص استثماري من وزارة الاستثمار (MISA)، وتجهيز الأوراق الثبوتية للشركة الأم، وصياغة قرار الشركاء أو عقد التأسيس، مع الامتثال للاشتراطات الفنية والمالية للأنشطة.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Accordion Item 3 -->
-                                <div class="accordion-item">
-                                    <button class="accordion-trigger">
-                                        <span class="question-text">كيف تتم تسوية قسمة التركات قانونياً؟</span>
-                                        <i data-lucide="plus" class="accordion-icon"></i>
-                                    </button>
-                                    <div class="accordion-content">
-                                        <p class="answer">
-                                            تتم إما ودياً عبر كتابة العدل بتوثيق قسمة رضائية يتفق عليها الورثة، أو قضائياً برفع دعوى قسمة تركة إجبارية أمام محكمة الأحوال الشخصية لفرز الأنصبة وبيع العقارات إن لزم.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="https://wa.me/966500000000?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%88%D8%B1%D8%AD%D9%85%D9%85%D9%87%20%D8%A7%D9%84%D9%84%D9%87%20%D9%88%D8%A8%D8%B1%D9%83%D8%A7%D8%AA%D9%87%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D8%B4%D8%B1%D9%83%D8%A9%20%D9%88%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D9%8A%D8%A9" target="_blank" class="qa-cta" style="margin-top: 15px;">احجز جلستك الآن <i data-lucide="arrow-left"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Right: Business Success Partner -->
-                    <div class="partner-content">
-                        <h3 class="section-title partner-section-title">للقطاع التجاري والاستثماري - شريك نجاح أعمالك</h3>
-                        <p class="partner-text">
-                            نقدم الدعم القانوني للشركات والمستثمرين بروح الشراكة، من خلال حلول قانونية مدروسة تواكب احتياجات أعمالكم، وتحمي مصالحكم، وتدعم استدامة نموكم.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section: خدماتنا القانونية -->
-        <section id="services" class="services-section">
-            <div class="container">
-                <!-- Section Header with View All Button -->
-                <div class="services-header">
-                    <div class="header-right">
-                        <h3 class="section-title">اعرف أكثر عن خدماتنا</h3>
-                    </div>
-                </div>
-
-                <!-- Tabs Controller -->
-                <div class="services-tabs">
-                    <button class="tab-btn active" data-target="corporate">
-                        <i data-lucide="briefcase"></i> خدمات الشركات
-                    </button>
-                    <button class="tab-btn" data-target="individuals">
-                        <i data-lucide="user"></i> خدمات الأفراد
-                    </button>
-                </div>
-
-                <!-- Services Grid (Corporate Services Panel) -->
-                <div class="services-panel active" id="corporate-panel">
-                    <div class="services-grid" id="corporate-grid">
-                        <!-- Dynamic content will be injected by app.js, showing 6 initially, expandable to 10 -->
-                    </div>
-                </div>
-
-                <!-- Services Grid (Individual Services Panel) -->
-                <div class="services-panel" id="individuals-panel">
-                    <div class="services-grid" id="individuals-grid">
-                        <!-- Dynamic content will be injected by app.js, showing 6 initially, expandable to 15 -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section: القطاعات التي نخدمها -->
-        <section id="sectors" class="sectors-section">
-            <div class="container">
-                <div class="section-header-center">
-                    <span class="section-tag">الخبرة القطاعية</span>
-                    <h3 class="section-title">القطاعات التي نخدمها</h3>
-                    <p class="section-subtitle">نوظف خبراتنا القانونية لخدمة شريحة واسعة من القطاعات لضمان الامتثال والنمو المستدام.</p>
-                </div>
-
-                <div class="sectors-grid">
-                    <!-- Sector Card 1 -->
-                    <div class="sector-card">
-                        <div class="sector-icon"><i data-lucide="user"></i></div>
-                        <h4 class="sector-title">الأفراد</h4>
-                        <p class="sector-desc">حماية حقوق الأفراد الأسرية، العمالية، العقارية والمالية بكفاءة عالية.</p>
-                    </div>
-                    <!-- Sector Card 2 -->
-                    <div class="sector-card">
-                        <div class="sector-icon"><i data-lucide="building-2"></i></div>
-                        <h4 class="sector-title">الشركات</h4>
-                        <p class="sector-desc">مرافقة الكيانات التجارية في حوكمتها وعقودها وحماية تعاملاتها اليومية.</p>
-                    </div>
-                    <!-- Sector Card 3 -->
-                    <div class="sector-card">
-                        <div class="sector-icon"><i data-lucide="store"></i></div>
-                        <h4 class="sector-title">المنشآت الصغيرة والمتوسطة</h4>
-                        <p class="sector-desc">تمكين وتأمين المنشآت الريادية والناشئة بحلول تتوافق مع إمكانياتها ونموها.</p>
-                    </div>
-                    <!-- Sector Card 4 -->
-                    <div class="sector-card">
-                        <div class="sector-icon"><i data-lucide="globe"></i></div>
-                        <h4 class="sector-title">المستثمرون الأجانب والمحليون</h4>
-                        <p class="sector-desc">تسهيل الإجراءات الاستثمارية وإصدار تراخيص وزارة الاستثمار (MISA) بمرونة.</p>
-                    </div>
-                    <!-- Sector Card 5 -->
-                    <div class="sector-card">
-                        <div class="sector-icon"><i data-lucide="factory"></i></div>
-                        <h4 class="sector-title">القطاع الصناعي</h4>
-                        <p class="sector-desc">مراجعة الاشتراطات والمطابقة للمصانع والمنشآت الإنتاجية لضمان استدامة التشغيل.</p>
-                    </div>
-                    <!-- Sector Card 6 -->
-                    <div class="sector-card">
-                        <div class="sector-icon"><i data-lucide="users"></i></div>
-                        <h4 class="sector-title">الجمعيات</h4>
-                        <p class="sector-desc">تقديم الاستشارات والحوكمة للقطاع غير الربحي والجمعيات الأهلية والخيرية.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Section: المقالات -->
-        <section id="articles" class="articles-section">
-            <div class="container">
-                <div class="section-header-center">
-                    <span class="section-tag">الوعي القانوني</span>
-                    <h3 class="section-title">المقالات والمدونة القانونية</h3>
-                    <p class="section-subtitle">إضاءات معرفية وتفسيرات مبسطة لأحدث الأنظمة واللوائح والقرارات في المملكة العربية السعودية.</p>
-                </div>
-
-                <div class="articles-grid">
-                    <!-- Article 1 -->
-                    <article class="article-card">
-                        <div class="article-meta">
-                            <span class="article-tag">الأنظمة التجارية</span>
-                            <span class="article-date">٣١ يوليو ٢٠٢٦</span>
-                        </div>
-                        <h4 class="article-title"><a href="#articles" class="open-article" data-id="1">نظام الشركات الجديد: تيسير الاستثمار وحماية حقوق المساهمين</a></h4>
-                        <p class="article-excerpt">
-                            نستعرض في هذا المقال أبرز ملامح نظام الشركات الجديد في المملكة العربية السعودية، وكيف يسهم في تيسير إجراءات التأسيس ودعم الشركات العائلية والمساهمة.
-                        </p>
-                        <a href="#articles" class="article-link open-article" data-id="1">اقرأ المقال كاملًا <i data-lucide="arrow-left"></i></a>
-                    </article>
-
-                    <!-- Article 2 -->
-                    <article class="article-card">
-                        <div class="article-meta">
-                            <span class="article-tag">الامتثال والحوكمة</span>
-                            <span class="article-date">٢٥ يوليو ٢٠٢٦</span>
-                        </div>
-                        <h4 class="article-title"><a href="#articles" class="open-article" data-id="2">أهمية تطبيق حوكمة الشركات في المنشآت الصغيرة والمتوسطة</a></h4>
-                        <p class="article-excerpt">
-                            الكثير يعتقد أن الحوكمة مخصصة للشركات الكبرى فقط، لكن الواقع يثبت أن الحوكمة هي صمام الأمان للمنشآت الناشئة لضمان استدامة العمليات وتجنب النزاعات القانونية.
-                        </p>
-                        <a href="#articles" class="article-link open-article" data-id="2">اقرأ المقال كاملًا <i data-lucide="arrow-left"></i></a>
-                    </article>
-
-                    <!-- Article 3 -->
-                    <article class="article-card">
-                        <div class="article-meta">
-                            <span class="article-tag">الاستثمار الأجنبي</span>
-                            <span class="article-date">١٢ يوليو ٢٠٢٦</span>
-                        </div>
-                        <h4 class="article-title"><a href="#articles" class="open-article" data-id="3">الدليل القانوني الشامل للمستثمر الأجنبي في المملكة</a></h4>
-                        <p class="article-excerpt">
-                            تعرف على متطلبات التأسيس عبر وزارة الاستثمار، والخيارات القانونية المتاحة للشركات الأجنبية، وأهم المزايا والضمانات التي كفلها النظام السعودي للمستثمرين.
-                        </p>
-                        <a href="#articles" class="article-link open-article" data-id="3">اقرأ المقال كاملًا <i data-lucide="arrow-left"></i></a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
         <!-- Section: تواصل معنا -->
         <section id="contact" class="contact-section">
             <div class="container">
-                <div class="contact-grid">
-                    <!-- Form Area (Right) -->
-                    <div class="contact-form-wrapper">
-                        <span class="section-tag">جلسة استشارية</span>
-                        <h3 class="section-title">احجز استشارتك القانونية</h3>
-                        <p class="contact-form-desc">املأ النموذج أدناه، وسيتواصل معك مستشارونا القانونيون لدراسة حالتك وتحديد الموعد الأنسب.</p>
+                
+                <div class="cta-direct-card">
+                    <a href="https://wa.me/966536939093?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D9%8A%D8%A9" target="_blank" class="btn-book-cta">
+                        <span>احجز استشارتك</span>
+                        <i data-lucide="arrow-left"></i>
+                    </a>
+
+                    <div class="direct-channels-box">
+                        <h3 class="channels-title">قنوات التواصل المباشر</h3>
                         
-                        <form id="consultation-form" class="contact-form">
-                            <div class="form-group-row">
-                                <div class="form-group">
-                                    <label for="client-name">الاسم الكريم *</label>
-                                    <input type="text" id="client-name" name="name" required placeholder="أدخل اسمك الثلاثي">
-                                </div>
-                                <div class="form-group">
-                                    <label for="client-phone">رقم الجوال *</label>
-                                    <input type="tel" id="client-phone" name="phone" required placeholder="05xxxxxxxx">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="service-type">نوع الاستشارة المطلوبة</label>
-                                <select id="service-type" name="service">
-                                    <option value="تأسيس الشركات">تأسيس الشركات</option>
-                                    <option value="تأسيس الشركات الأجنبية والاستثمار">تأسيس الشركات الأجنبية والاستثمار</option>
-                                    <option value="العقود والاتفاقيات التجارية">العقود والاتفاقيات التجارية</option>
-                                    <option value="الامتثال والحوكمة للشركات">الامتثال والحوكمة للشركات</option>
-                                    <option value="التقاضي والتنفيذ">التقاضي والتنفيذ</option>
-                                    <option value="الأحوال الشخصية والمواريث">الأحوال الشخصية والمواريث</option>
-                                    <option value="القضايا العقارية والعمالية">القضايا العقارية والعمالية</option>
-                                    <option value="استشارة قانونية عامة" selected>استشارة قانونية عامة</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="client-message">تفاصيل وملخص الاستفسار *</label>
-                                <textarea id="client-message" name="message" rows="4" required placeholder="اشرح باختصار موضوع الاستشارة أو القضية لتسهيل مراجعتها..."></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">إرسال الطلب وحجز موعد <i data-lucide="send"></i></button>
-                        </form>
-                    </div>
-
-                    <!-- Details Area (Left) -->
-                    <div class="contact-details-wrapper">
-                        <div class="cta-box-simple cta-box-green">
-                            <h3 class="cta-title">هل تحتاج إلى استشارة قانونية؟</h3>
-                            <p class="cta-text">يمكنك التواصل معنا مباشرة وبشكل فوري عبر الواتساب أو الاتصال الهاتفي لطرح استفساراتك.</p>
-                            <div class="cta-buttons">
-                                <a href="https://wa.me/966536939093?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%88%D8%B1%D8%AD%D9%85%D8%A9%20%D8%A7%D9%84%D9%84%D9%87%20%D9%88%D8%A8%D8%B1%D9%83%D8%A7%D8%AA%D9%87%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B7%D9%84%D8%A8%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9%20%D9%82%D8%A7%D9%86%D9%88%D9%86%D9%8A%D8%A9" target="_blank" class="btn btn-whatsapp">
-                                    <i data-lucide="message-square"></i> راسلنا على الواتساب
-                                </a>
-                                <a href="tel:+966536939093" class="btn btn-phone">
-                                    <i data-lucide="phone"></i> اتصل بنا مباشرة
-                                </a>
+                        <div class="channel-item">
+                            <div class="channel-icon"><i data-lucide="phone"></i></div>
+                            <div class="channel-info">
+                                <span class="channel-label">اتصل بنا مباشرة</span>
+                                <a href="tel:+966536939093" class="channel-value" dir="ltr">+966 53 693 9093</a>
                             </div>
                         </div>
 
-                        <div class="info-list">
-                            <div class="info-item">
-                                <div class="info-icon"><i data-lucide="map-pin"></i></div>
-                                <div class="info-text">
-                                    <h5>العنوان والموقع</h5>
-                                    <p>المملكة العربية السعودية، المدينة المنورة، حي الشريبات، طريق الأمير عبدالمجيد بن عبدالعزيز</p>
-                                </div>
-                            </div>
-                            <!-- Google Maps Embed -->
-                            <div class="map-embed-wrapper" style="text-align: center; padding: var(--spacing-sm) 0;">
-                                <iframe
-                                    src="https://maps.google.com/maps?q=مكتب%20المحامية%20طيف%20العروي%20للمحاماة&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                                    width="100%"
-                                    height="250"
-                                    style="border:0; border-radius: var(--radius-sm); margin-bottom: var(--spacing-sm);"
-                                    allowfullscreen=""
-                                    loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"
-                                    title="موقع مكتب المحامية طيف العروي"
-                                    class="map-embed"
-                                ></iframe>
-                                <a href="https://maps.app.goo.gl/Xhux9UqoNYBymxKv8?g_st=aw" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; justify-content: center; width: 100%;">
-                                    <i data-lucide="map"></i> الوصول إلى الموقع
-                                </a>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-icon"><i data-lucide="mail"></i></div>
-                                <div class="info-text">
-                                    <h5>البريد الإلكتروني</h5>
-                                    <p>taifalarwi.law@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-icon"><i data-lucide="clock"></i></div>
-                                <div class="info-text">
-                                    <h5>ساعات العمل</h5>
-                                    <p>الأحد - الخميس: من ٨:٠٠ صباحًا حتى ٥:٠٠ مساءً</p>
-                                </div>
+                        <div class="channel-item">
+                            <div class="channel-icon"><i data-lucide="map-pin"></i></div>
+                            <div class="channel-info">
+                                <span class="channel-label">الموقع الرسمي</span>
+                                <span class="channel-value">المدينة المنورة، المملكة العربية السعودية</span>
                             </div>
                         </div>
 
-                        <!-- Social Media -->
-                        <div class="social-links-wrapper social-links-card">
-                            <h5>تابعنا على وسائل التواصل</h5>
-                            <div class="social-links">
-                                <a href="https://x.com/tiaflaw" target="_blank" class="social-link social-link--twitter" aria-label="منصة إكس" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                                    <img src="./x-logo.png" alt="X Logo" style="width: 28px; height: 28px; border-radius: 4px; object-fit: contain;">
-                                    <span>@tiaflaw</span>
-                                </a>
+                        <div class="channel-item">
+                            <div class="channel-icon"><i data-lucide="share-2"></i></div>
+                            <div class="channel-info">
+                                <span class="channel-label">شبكات التواصل الاجتماعي</span>
+                                <div class="social-tags">
+                                    <a href="https://x.com/tiaflaw" target="_blank">تويتر (X)</a> • 
+                                    <a href="https://wa.me/966536939093" target="_blank">واتساب</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="contact-details-card">
+                    <div class="card-header-flex">
+                        <h3 class="card-title-text">بيانات الاتصال والموقع</h3>
+                        <div class="card-header-icon"><i data-lucide="phone-call"></i></div>
+                    </div>
+
+                    <div class="contact-info-list">
+                        <div class="info-row-box">
+                            <div class="row-icon"><i data-lucide="map-pin"></i></div>
+                            <div class="row-text">
+                                <h4>العنوان</h4>
+                                <p>المملكة العربية السعودية - المدينة المنورة - حي الشريبات - طريق الأمير عبدالمجيد بن عبدالعزيز</p>
+                            </div>
+                        </div>
+
+                        <div class="info-row-box">
+                            <div class="row-icon"><i data-lucide="mail"></i></div>
+                            <div class="row-text">
+                                <h4>البريد الإلكتروني</h4>
+                                <a href="mailto:taifalarwi.law@gmail.com" class="email-link">taifalarwi.law@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="info-row-box">
+                            <div class="row-icon"><i data-lucide="clock"></i></div>
+                            <div class="row-text">
+                                <h4>ساعات العمل</h4>
+                                <p>الأحد - الخميس: من ٨:٠٠ صباحًا حتى ٥:٠٠ مساءً</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-pills-wrapper">
+                        <span class="social-pills-title"><i data-lucide="share-2"></i> تابعنا على منصات التواصل</span>
+                        <div class="pills-grid">
+                            <a href="https://x.com/tiaflaw" target="_blank" class="social-pill" title="X (Twitter)">
+                                <img src="x-logo.png" alt="X" style="width: 18px; height: 18px;">
+                            </a>
+                            <a href="https://wa.me/966536939093" target="_blank" class="social-pill" title="WhatsApp">
+                                <i data-lucide="message-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container" style="margin-top: 2rem;">
+                    <iframe
+                        src="https://maps.google.com/maps?q=مكتب%20المحامية%20طيف%20العروي%20للمحاماة&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        width="100%" height="280" style="border:0; border-radius: 16px;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
             </div>
         </section>
-
-
-
-
     </main>
 
-    <!-- Footer -->
     <footer class="main-footer">
-        <div class="container footer-grid">
-            <!-- Footer Info -->
-            <div class="footer-info">
-                <div class="footer-logo">
-                    <img src="./logo.png" alt="شعار المحامية طيف العروي" class="footer-logo-img">
-                    <div>
-                        <h4>مكتب المحامية طيف العروي</h4>
-                        <span>للمحاماة والاستشارات القانونية</span>
-                    </div>
-                </div>
-                <p class="footer-desc">
-                    نلتزم بالدقة المهنية والسرية والاحترافية الكاملة لتقديم أفضل الحلول القانونية التي تحمي حقوقك وتدعم استمرارية ونمو أعمالك في المملكة.
-                </p>
-            </div>
-
-            <!-- Footer Links 2 (Services shortcut) -- placed first to appear on left in RTL -->
-            <div class="footer-links">
-                <h5>الخدمات البارزة</h5>
-                <ul>
-                    <li><a href="#services" data-tab="corporate">تأسيس الشركات</a></li>
-                    <li><a href="#services" data-tab="corporate">تأسيس الشركات الأجنبية</a></li>
-                    <li><a href="#services" data-tab="corporate">الحوكمة والامتثال</a></li>
-                    <li><a href="#services" data-tab="individuals">التركات والمواريث</a></li>
-                    <li><a href="#services" data-tab="individuals">الأحوال الشخصية</a></li>
-                    <li><a href="#services" data-tab="individuals">خدمات الإقامة المميزة</a></li>
-                </ul>
-            </div>
-
-            <!-- Footer Links 1 -->
-            <div class="footer-links">
-                <ul>
-                    <li><a href="#hero">الرئيسية</a></li>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#services">خدماتنا القانونية</a></li>
-                    <li><a href="#sectors">القطاعات التي نخدمها</a></li>
-                    <li><a href="#articles">المقالات والمدونة</a></li>
-                    <li><a href="#contact">اتصل بنا</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="container footer-bottom-flex">
-                <p>&copy; 2026 مكتب المحامية طيف العروي. جميع الحقوق محفوظة.</p>
-                <p>صُمم بكل رقي وتوافق كامل مع الأنظمة المعمول بها.</p>
-            </div>
+        <div class="container footer-bottom-flex">
+            <p>&copy; 2026 مكتب المحامية طيف العروي. جميع الحقوق محفوظة.</p>
+            <p>Taif Al-arwo law firm</p>
         </div>
     </footer>
 
-    <!-- Article Modal Viewer -->
-    <div id="article-modal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal" aria-label="إغلاق">&times;</button>
-            <div class="modal-body" id="modal-article-body">
-                <!-- Content injected dynamically -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Script Entry -->
-    <script src="./app.js"></script>
+    <script src="app.js"></script>
     <script>
-        // Initialize Lucide icons on page load
         lucide.createIcons();
     </script>
 </body>

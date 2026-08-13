@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقالات القانونية | مكتب المحامية طيف العروي</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- خلفية الشعار المائي الثابتة -->
+    <div class="global-fixed-watermark">
+        <img src="bg-watermark.png" alt="" aria-hidden="true">
+    </div>
+
+    <!-- Header Navbar -->
+    <header class="main-header">
+        <div class="header-container">
+            
+            <!-- 1. اليمين: الشعار فقط -->
+            <div class="header-right-group">
+                <a href="index.html" class="brand">
+                    <img src="logo.png" alt="شعار المحامية طيف العروي" class="logo-img">
+                    <div class="brand-text">
+                        <span class="brand-title">مكتب المحامية طيف العروي للمحاماة والاستشارات القانونية</span>
+                        <span class="brand-en">Taif Al-arwo law firm</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- زر الموبايل للـ 3 شرط -->
+            <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="فتح القائمة">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <!-- 2. اليسار: القوائم، أيقونة المود، ثم زر التواصل -->
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="index.html#about" class="nav-link">من نحن</a></li>
+                    <li class="dropdown">
+                        <a href="services.html" class="nav-link dropdown-toggle">
+                            خدماتنا <i data-lucide="chevron-down" class="chevron-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html?tab=corporate" class="dropdown-item">خدمات الشركات</a></li>
+                            <li><a href="services.html?tab=individuals" class="dropdown-item">خدمات الأفراد</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="articles.html" class="nav-link active">المقالات</a></li>
+                    
+                    <!-- أيقونة تغيير المود -->
+                    <li>
+                        <button id="theme-toggle" class="theme-toggle-btn" aria-label="تبديل المظهر">
+                            <i data-lucide="moon" id="theme-icon"></i>
+                        </button>
+                    </li>
+
+                    <!-- زر التواصل البارز -->
+                    <li>
+                        <a href="index.html#contact" class="nav-cta-btn-styled">
+                            <span>تواصل واحصل علي استشارتك</span>
+                            <i data-lucide="arrow-left"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="articles-hero-section">
+            <div class="container hero-container">
+                <div class="hero-content-center">
+                    <h1 class="hero-main-title">المقالات والمدونة القانونية</h1>
+                    <p class="hero-main-desc">نشارككم رؤى قانونية، مقالات تحليلية، ومستجدات نظامية لتكونوا على دلالة تامة بمختلف الجوانب القانونية.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="articles-page-section">
+            <div class="container">
+                <div class="article-filters">
+                    <button class="filter-btn active" data-filter="all">جميع المقالات</button>
+                    <button class="filter-btn" data-filter="corporate">أنظمة الشركات</button>
+                    <button class="filter-btn" data-filter="labor">نظام العمل</button>
+                    <button class="filter-btn" data-filter="commercial">النزاعات التجارية</button>
+                </div>
+
+                <div class="articles-grid-full" id="articles-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- نافذة عرض المقال الكامل (Modal) -->
+    <div id="article-modal" class="article-modal-overlay">
+        <div class="article-modal-content">
+            <button class="modal-close-btn" id="modal-close" aria-label="إغلاق النافذة"><i data-lucide="x"></i></button>
+            <div id="modal-body-content">
+                <!-- سيتم تعبئة محتوى المقال هنا ديناميكياً عبر ملف app.js -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container footer-bottom-flex">
+            <p>&copy; 2026 مكتب المحامية طيف العروي. جميع الحقوق محفوظة.</p>
+            <p>Taif Al-arwo law firm</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+/* ==========================================================================
+   Dashboard Styles - Taif Al-Arwi Identity
+   ========================================================================== */
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--beige-soft);
+}
+
+/* القائمة الجانبية */
+.dashboard-sidebar {
+    width: 260px;
+    background-color: var(--primary-bg);
+    border-left: 1px solid var(--border-color);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    z-index: 100;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2.5rem;
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.sidebar-link:hover, .sidebar-link.active {
+    background-color: var(--brand-soft);
+    color: var(--brand-primary);
+}
+
+[data-theme="dark"] .sidebar-link:hover, 
+[data-theme="dark"] .sidebar-link.active {
+    background-color: rgba(233, 177, 139, 0.15);
+    color: var(--gold-primary);
+}
+
+/* المحتوى الرئيسي */
+.dashboard-main {
+    flex: 1;
+    margin-right: 260px;
+    padding: 2rem;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-bg);
+    padding: 1.2rem 2rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.welcome-text h2 {
+    font-size: 1.4rem;
+    color: var(--brand-dark);
+    font-weight: 800;
+}
+
+.welcome-text p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.dashboard-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    background-color: var(--brand-primary);
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+/* الإحصائيات */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background-color: var(--primary-bg);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.stat-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stat-info h3 {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--brand-dark);
+}
+
+/* الجدول */
+.recent-section {
+    background-color: var(--primary-bg);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.8rem;
+}
+
+.section-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-card-header h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--brand-dark);
+}
+
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+}
+
+.dashboard-table th, .dashboard-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1rem;
+}
+
+.dashboard-table th {
+    color: var(--text-muted);
+    font-weight: 700;
+    background-color: var(--beige-light);
+}
+
+.dashboard-table td {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.badge.pending { background: rgba(241, 196, 15, 0.15); color: #d4ac0d; }
+.badge.completed { background: rgba(39, 174, 96, 0.15); color: #27ae60; }
+.badge.in-progress { background: rgba(52, 152, 219, 0.15); color: #3498db; }
+
+.action-btn {
+    background: var(--brand-primary);
+    color: #FFFFFF;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+
+.action-btn:hover {
+    background: var(--brand-light);
+}
+
+[data-theme="dark"] .dashboard-sidebar,
+[data-theme="dark"] .dashboard-header,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .recent-section,
+[data-theme="dark"] .dashboard-table th {
+    background-color: #133F2E !important;
+    border-color: rgba(233, 177, 139, 0.25) !important;
+    color: #FDFBF7 !important;
+}
+
+@media (max-width: 992px) {
+    .dashboard-sidebar { width: 80px; padding: 1.5rem 0.5rem; }
+    .sidebar-brand span, .sidebar-link span { display: none; }
+    .dashboard-main { margin-right: 80px; }
+    .stats-grid { grid-template-columns: 1fr; }
+}
