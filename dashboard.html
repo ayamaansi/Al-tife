@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة التحكم | مكتب المحامية طيف العروي</title>
+    <title>المحامية طيف | لوحة التحكم</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,65 +36,82 @@
         <aside class="dashboard-sidebar">
             <div class="sidebar-brand">
                 <img src="logo.png" alt="شعار" class="logo-img">
-                <span class="brand-title">لوحة التحكم</span>
+                <span class="brand-title">المحامية طيف</span>
             </div>
             
             <ul class="sidebar-menu">
-                <li><a href="#" class="sidebar-link active" data-target="home-section"><i data-lucide="layout-dashboard"></i> <span>الرئيسية</span></a></li>
-                <li><a href="#" class="sidebar-link" data-target="clients-section"><i data-lucide="users"></i> <span>العملاء</span></a></li>
-                <li><a href="#" class="sidebar-link" data-target="cases-section"><i data-lucide="briefcase"></i> <span>القضايا والاستشارات</span></a></li>
-                <li><a href="#" class="sidebar-link" data-target="schedule-section"><i data-lucide="calendar"></i> <span>المواعيد والجلسات</span></a></li>
-                <li><a href="#" class="sidebar-link" data-target="documents-section"><i data-lucide="file-text"></i> <span>المستندات والعقود</span></a></li>
+                <li><a href="#" class="sidebar-link active" data-target="home-section"><i data-lucide="layout-dashboard"></i> <span>لوحة المعلومات</span></a></li>
+                <li><a href="#" class="sidebar-link" data-target="requests-section"><i data-lucide="inbox"></i> <span>الطلبات الواردة</span> <span class="badge new-badge" id="new-requests-badge">0</span></a></li>
+                <li><a href="#" class="sidebar-link" data-target="clients-section"><i data-lucide="users"></i> <span>إدارة الموكلين</span></a></li>
+                <li><a href="#" class="sidebar-link" data-target="cases-section"><i data-lucide="scale"></i> <span>القضايا والجلسات</span></a></li>
+                <li><a href="#" class="sidebar-link" data-target="documents-section"><i data-lucide="folder-open"></i> <span>الأرشيف والمستندات</span></a></li>
+                <li><a href="#" class="sidebar-link" data-target="finance-section"><i data-lucide="wallet"></i> <span>الإدارة المالية</span></a></li>
+                <li><a href="#" class="sidebar-link" data-target="tasks-section"><i data-lucide="check-square"></i> <span>المهام اليومية</span></a></li>
                 <li><a href="index.html" class="sidebar-link" style="margin-top: 2rem; color: #e74c3c;"><i data-lucide="log-out"></i> <span>العودة للموقع</span></a></li>
             </ul>
         </aside>
 
         <!-- المحتوى الرئيسي للداش بورد -->
         <main class="dashboard-main">
-            <!-- الهيدر العلوي للداش بورد -->
+            <!-- الهيدر العلوي -->
             <header class="dashboard-header">
                 <div class="welcome-text">
                     <h2>مرحباً بكِ، المحامية طيف</h2>
-                    <p>إليك ملخص سريع لنشاط المكتب اليوم</p>
+                    <p>نظام إدارة المكتب والموكلين</p>
                 </div>
-                <!-- تمت إزالة أيقونة المظهر من هنا -->
-                <div class="admin-profile">
-                    <span>المحامية طيف</span>
-                    <div class="avatar-circle">ط</div>
+                
+                <div class="header-actions" style="display: flex; align-items: center; gap: 1.5rem;">
+                    <!-- شريط البحث -->
+                    <div class="search-box" style="position: relative;">
+                        <input type="text" id="global-search" placeholder="بحث سريع..." class="dashboard-input" style="padding: 0.6rem 2.5rem 0.6rem 1rem; width: 220px; border-radius: 50px;">
+                        <i data-lucide="search" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--dash-text-muted); width: 18px; height: 18px;"></i>
+                    </div>
+
+                    <!-- جرس الإشعارات -->
+                    <div class="notification-wrapper" style="position: relative;">
+                        <div id="notif-bell" style="position: relative; padding: 0.6rem; background: var(--dash-card); border-radius: 50%; border: 1px solid var(--dash-border); cursor: pointer; display: flex; box-shadow: var(--shadow-sm);">
+                            <i data-lucide="bell" style="color: var(--dash-text-main); width: 22px; height: 22px;"></i>
+                            <span id="notif-count" style="position: absolute; top: -5px; right: -5px; background: #e74c3c; color: white; border-radius: 50%; font-size: 0.7rem; width: 18px; height: 18px; display: flex; justify-content: center; align-items: center; display: none;">0</span>
+                        </div>
+                        
+                        <!-- القائمة المنسدلة للإشعارات -->
+                        <div id="notif-dropdown" class="notif-dropdown" style="display: none; position: absolute; left: 0; top: 120%; background: var(--dash-card); width: 300px; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); border: 1px solid var(--dash-border); z-index: 1000; overflow: hidden;">
+                            <div class="notif-header" style="background: var(--dash-primary); color: white; padding: 1rem; font-weight: bold; font-size: 0.95rem;">الإشعارات والتنبيهات</div>
+                            <ul id="notif-list" style="list-style: none; margin: 0; padding: 0; max-height: 300px; overflow-y: auto;">
+                                <li style="padding: 1rem; text-align: center; color: var(--dash-text-muted); font-size: 0.9rem;">لا توجد تنبيهات حالياً</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- الملف الشخصي -->
+                    <div class="admin-profile">
+                        <span>المحامية طيف</span>
+                        <div class="avatar-circle">ط</div>
+                    </div>
                 </div>
             </header>
 
-            <!-- 1. قسم الرئيسية -->
+            <!-- 1. لوحة المعلومات (Overview) -->
             <div id="home-section" class="dashboard-content-section">
-                <section class="recent-section" style="margin-bottom: 2rem; background: var(--beige-light); border: 1px dashed var(--brand-primary);">
-                    <div class="section-card-header" style="margin-bottom: 1rem;">
-                        <h3 style="font-size: 1.05rem;">إدارة العمليات والإحصائيات</h3>
-                    </div>
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-                        <button id="add-client-btn" class="action-btn" style="background: var(--brand-primary);">+ إضافة عميل جديد</button>
-                        <button id="add-consult-btn" class="action-btn" style="background: var(--gold-dark); color: #0D2B1F;">+ تسجيل استشارة جديدة</button>
-                    </div>
-                </section>
-
                 <section class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: rgba(19, 63, 46, 0.1); color: var(--brand-primary);"><i data-lucide="briefcase"></i></div>
+                        <div class="stat-icon" style="background: rgba(19, 63, 46, 0.1); color: var(--dash-primary);"><i data-lucide="scale"></i></div>
                         <div class="stat-info">
-                            <h3>القضايا النشطة</h3>
+                            <h3>القضايا المنظورة</h3>
                             <p class="stat-number" id="active-cases-count">0</p>
                         </div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-icon" style="background: rgba(233, 177, 139, 0.2); color: var(--gold-dark);"><i data-lucide="calendar-check"></i></div>
+                        <div class="stat-icon" style="background: rgba(194, 150, 75, 0.15); color: var(--dash-gold);"><i data-lucide="gavel"></i></div>
                         <div class="stat-info">
-                            <h3>استشارات اليوم</h3>
-                            <p class="stat-number" id="today-consultations-count">0</p>
+                            <h3>جلسات هذا الأسبوع</h3>
+                            <p class="stat-number" id="weekly-hearings-count">0</p>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon" style="background: rgba(52, 152, 219, 0.1); color: #3498db;"><i data-lucide="users"></i></div>
                         <div class="stat-info">
-                            <h3>إجمالي العملاء</h3>
+                            <h3>إجمالي الموكلين</h3>
                             <p class="stat-number" id="total-clients-count">0</p>
                         </div>
                     </div>
@@ -102,118 +119,291 @@
 
                 <section class="recent-section">
                     <div class="section-card-header">
-                        <h3>أحدث الاستشارات والطلبات</h3>
+                        <h3>جلسات المحاكم القادمة</h3>
                     </div>
                     <div class="table-responsive">
                         <table class="dashboard-table">
                             <thead>
-                                <tr><th>اسم العميل</th><th>نوع الخدمة</th><th>التاريخ</th><th>الحالة</th><th>الإجراء / الحذف</th></tr>
+                                <tr><th>رقم القضية</th><th>الموكل</th><th>المحكمة / الدائرة</th><th>تاريخ الجلسة</th><th>الإجراء</th></tr>
                             </thead>
-                            <tbody id="home-table-body"></tbody>
+                            <tbody id="upcoming-hearings-body">
+                            </tbody>
                         </table>
                     </div>
                 </section>
             </div>
 
-            <!-- بقية الأقسام (العملاء، القضايا، المواعيد، المستندات) كما هي -->
+            <!-- 2. الطلبات الواردة من الموقع -->
+            <div id="requests-section" class="dashboard-content-section" style="display: none;">
+                <section class="recent-section" style="border-top: 4px solid var(--dash-primary);">
+                    <div class="section-card-header">
+                        <div>
+                            <h3>طلبات الاستشارة الواردة (من الموقع)</h3>
+                            <p style="font-size: 0.9rem; color: var(--dash-text-muted); margin-top: 0.3rem;">تصل هذه الطلبات أوتوماتيكياً من نموذج "تواصل معنا" في الموقع (عبر Google Sheets).</p>
+                        </div>
+                        <button id="refresh-requests-btn" class="action-btn" style="background: var(--dash-primary-light); color: var(--dash-primary);"><i data-lucide="refresh-cw"></i> تحديث</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr><th>اسم العميل</th><th>رقم الجوال</th><th>نوع الخدمة</th><th>تاريخ الطلب</th><th>الإجراء</th></tr>
+                            </thead>
+                            <tbody id="website-requests-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 3. إدارة الموكلين (الرسميين) -->
             <div id="clients-section" class="dashboard-content-section" style="display: none;">
                 <section class="recent-section">
-                    <div class="section-card-header"><h3>إدارة العملاء المسجلين</h3></div>
-                    <div class="table-responsive"><table class="dashboard-table"><thead><tr><th>اسم العميل</th><th>الخدمة المطلوبة</th><th>التاريخ</th><th>الحالة</th></tr></thead><tbody id="clients-table-body"></tbody></table></div>
+                    <div class="section-card-header">
+                        <h3>إدارة الموكلين</h3>
+                        <button id="add-client-btn" class="action-btn">+ إضافة موكل جديد</button>
+                    </div>
+                </section>
+
+                <section class="recent-section">
+                    <div class="table-responsive">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr><th>اسم الموكل</th><th>رقم الهوية / السجل</th><th>رقم الوكالة الشرعية</th><th>رقم الجوال</th><th>حالة الوكالة</th></tr>
+                            </thead>
+                            <tbody id="clients-table-body">
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
             </div>
 
+            <!-- 4. القضايا والجلسات -->
             <div id="cases-section" class="dashboard-content-section" style="display: none;">
                 <section class="recent-section">
-                    <div class="section-card-header"><h3>القضايا والاستشارات النشطة</h3></div>
-                    <div class="table-responsive"><table class="dashboard-table"><thead><tr><th>اسم العميل</th><th>نوع القضية / الاستشارة</th><th>التاريخ</th><th>الحالة</th></tr></thead><tbody id="cases-table-body"></tbody></table></div>
+                    <div class="section-card-header">
+                        <h3>سجل القضايا والجلسات</h3>
+                        <button id="add-case-btn" class="action-btn">+ إضافة قضية / جلسة</button>
+                    </div>
                 </section>
-            </div>
 
-            <div id="schedule-section" class="dashboard-content-section" style="display: none;">
-                <section class="recent-section" style="margin-bottom: 2rem; background: var(--beige-light); border: 1px dashed var(--brand-primary);">
-                    <div class="section-card-header" style="margin-bottom: 1rem;"><h3 style="font-size: 1.05rem;">إدارة المواعيد والجلسات</h3></div>
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;"><button id="add-schedule-btn" class="action-btn" style="background: var(--brand-primary);">+ إضافة موعد أو جلسة جديدة</button></div>
-                </section>
                 <section class="recent-section">
-                    <div class="section-card-header"><h3>جدول المواعيد والجلسات القادمة</h3></div>
-                    <div class="table-responsive"><table class="dashboard-table"><thead><tr><th>الموكل / العميل</th><th>نوع الموعد</th><th>التاريخ والوقت</th><th>الحالة</th><th>الإجراء / الحذف</th></tr></thead><tbody id="schedule-table-body"></tbody></table></div>
+                    <div class="table-responsive">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr><th>رقم القضية</th><th>الموكل</th><th>الخصم</th><th>المحكمة / الدائرة</th><th>حالة القضية</th></tr>
+                            </thead>
+                            <tbody id="cases-table-body">
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
             </div>
 
+            <!-- 5. المستندات والأرشيف -->
             <div id="documents-section" class="dashboard-content-section" style="display: none;">
                 <section class="recent-section">
-                    <div class="section-card-header"><h3>أرشيف المستندات والعقود</h3></div>
-                    <div class="table-responsive"><table class="dashboard-table"><thead><tr><th>اسم المستند / العقد</th><th>العميل المرتبط</th><th>تاريخ الإضافة</th><th>الإجراء</th></tr></thead><tbody id="documents-table-body"><tr><td>عقد تأسيس شركة مساهمة</td><td>شركة الأفق الذكي</td><td>13 أغسطس 2026</td><td><button class="action-btn">تحميل</button></td></tr></tbody></table></div>
+                    <div class="section-card-header">
+                        <h3>الأرشيف والمذكرات القانونية</h3>
+                        <button id="add-document-btn" class="action-btn">+ إضافة مستند جديد</button>
+                    </div>
+                </section>
+
+                <section class="recent-section">
+                    <div class="table-responsive">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr><th>اسم المستند</th><th>النوع</th><th>مرتبط بـ</th><th>تاريخ الإضافة</th><th>الإجراء</th></tr>
+                            </thead>
+                            <tbody id="documents-table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 6. الإدارة المالية -->
+            <div id="finance-section" class="dashboard-content-section" style="display: none;">
+                <section class="recent-section">
+                    <div class="section-card-header">
+                        <h3>الإدارة المالية والأتعاب</h3>
+                        <button id="add-finance-btn" class="action-btn" style="background: var(--dash-gold); color: white;">+ إضافة دفعة / أتعاب</button>
+                    </div>
+                </section>
+
+                <section class="stats-grid" style="margin-bottom: 2rem;">
+                    <div class="stat-card" style="padding: 1.5rem;">
+                        <div class="stat-info">
+                            <h3 style="font-size: 0.95rem;">إجمالي الأتعاب المتعاقد عليها</h3>
+                            <p class="stat-number" id="total-revenue" style="font-size: 1.8rem;">0 <span style="font-size:1rem; color:var(--dash-text-muted);">ر.س</span></p>
+                        </div>
+                    </div>
+                    <div class="stat-card" style="padding: 1.5rem;">
+                        <div class="stat-info">
+                            <h3 style="font-size: 0.95rem;">المدفوعات المحصلة</h3>
+                            <p class="stat-number" id="total-paid" style="font-size: 1.8rem; color: #10b981;">0 <span style="font-size:1rem; color:var(--dash-text-muted);">ر.س</span></p>
+                        </div>
+                    </div>
+                    <div class="stat-card" style="padding: 1.5rem;">
+                        <div class="stat-info">
+                            <h3 style="font-size: 0.95rem;">المبالغ المتبقية</h3>
+                            <p class="stat-number" id="total-outstanding" style="font-size: 1.8rem; color: #ef4444;">0 <span style="font-size:1rem; color:var(--dash-text-muted);">ر.س</span></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="recent-section">
+                    <div class="table-responsive">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr><th>الموكل</th><th>القضية/الخدمة</th><th>إجمالي الأتعاب</th><th>المدفوع</th><th>المتبقي</th></tr>
+                            </thead>
+                            <tbody id="finance-table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 7. المهام اليومية -->
+            <div id="tasks-section" class="dashboard-content-section" style="display: none;">
+                <section class="recent-section" style="max-width: 800px; margin: 0 auto;">
+                    <div class="section-card-header">
+                        <h3>مذكرة المهام اليومية (To-Do List)</h3>
+                    </div>
+                    <form id="add-task-form" style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                        <input type="text" id="task-input" placeholder="اكتب مهمة جديدة هنا..." class="dashboard-input" style="flex: 1;" required>
+                        <button type="submit" class="action-btn">إضافة المهمة</button>
+                    </form>
+                    
+                    <ul id="tasks-list" class="todo-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <!-- سيتم تعبئتها برمجياً -->
+                    </ul>
                 </section>
             </div>
         </main>
     </div>
 
-    <!-- نافذة منبثقة لإضافة عميل جديد -->
+    <!-- نوافذ إضافة البيانات (Modals) -->
+
+    <!-- نافذة إضافة موكل -->
     <div id="client-modal" class="article-modal-overlay" style="display: none;">
-        <div class="article-modal-content" style="max-width: 450px;">
+        <div class="article-modal-content">
             <button class="modal-close-btn" id="client-modal-close" aria-label="إغلاق النافذة"><i data-lucide="x"></i></button>
-            <h3 style="margin-bottom: 1.5rem; color: var(--brand-dark); font-weight: 800;">إضافة عميل جديد</h3>
+            <h3 style="margin-bottom: 1.5rem; color: var(--dash-primary); font-weight: 800;">إضافة موكل رسمي</h3>
             <form id="add-client-form" style="display: flex; flex-direction: column; gap: 1rem;">
                 <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-                    <label style="font-weight: 700; font-size: 0.9rem;">اسم العميل</label>
-                    <input type="text" id="client-name-input" placeholder="أدخل اسم العميل" required style="padding: 0.7rem; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">اسم الموكل</label>
+                    <input type="text" id="cl-name" required class="dashboard-input">
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-                    <label style="font-weight: 700; font-size: 0.9rem;">نوع الخدمة</label>
-                    <input type="text" id="client-service-input" placeholder="مثال: تأسيس شركة..." required style="padding: 0.7rem; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">رقم الهوية / السجل التجاري</label>
+                    <input type="text" id="cl-id" required class="dashboard-input">
                 </div>
-                <button type="submit" class="action-btn" style="margin-top: 1rem; padding: 0.7rem; font-size: 1rem;">حفظ وإضافة</button>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">رقم الوكالة الشرعية</label>
+                    <input type="text" id="cl-poa" class="dashboard-input">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">رقم الجوال</label>
+                    <input type="tel" id="cl-phone" required class="dashboard-input">
+                </div>
+                <button type="submit" class="action-btn" style="margin-top: 1rem;">حفظ بيانات الموكل</button>
             </form>
         </div>
     </div>
 
-    <!-- نافذة منبثقة لتسجيل استشارة جديدة -->
-    <div id="consult-modal" class="article-modal-overlay" style="display: none;">
-        <div class="article-modal-content" style="max-width: 450px;">
-            <button class="modal-close-btn" id="consult-modal-close" aria-label="إغلاق النافذة"><i data-lucide="x"></i></button>
-            <h3 style="margin-bottom: 1.5rem; color: var(--brand-dark); font-weight: 800;">تسجيل استشارة جديدة</h3>
-            <form id="add-consult-form" style="display: flex; flex-direction: column; gap: 1rem;">
+    <!-- نافذة إضافة قضية/جلسة -->
+    <div id="case-modal" class="article-modal-overlay" style="display: none;">
+        <div class="article-modal-content">
+            <button class="modal-close-btn" id="case-modal-close" aria-label="إغلاق النافذة"><i data-lucide="x"></i></button>
+            <h3 style="margin-bottom: 1.5rem; color: var(--dash-primary); font-weight: 800;">إضافة قضية / جلسة</h3>
+            <form id="add-case-form" style="display: flex; flex-direction: column; gap: 1rem;">
                 <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-                    <label style="font-weight: 700; font-size: 0.9rem;">اسم المستشير</label>
-                    <input type="text" id="consult-name-input" placeholder="أدخل اسم المستشير" required style="padding: 0.7rem; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">اسم الموكل</label>
+                    <select id="case-client" required class="dashboard-input"></select>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-                    <label style="font-weight: 700; font-size: 0.9rem;">موضوع الاستشارة</label>
-                    <input type="text" id="consult-topic-input" placeholder="مثال: مراجعة عقود..." required style="padding: 0.7rem; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">الخصم</label>
+                    <input type="text" id="case-opponent" class="dashboard-input">
                 </div>
-                <button type="submit" class="action-btn" style="margin-top: 1rem; padding: 0.7rem; font-size: 1rem; background: var(--gold-dark); color: #0D2B1F;">حفظ وإضافة</button>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">رقم القضية</label>
+                    <input type="text" id="case-number" required class="dashboard-input">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">المحكمة / الدائرة</label>
+                    <input type="text" id="case-court" placeholder="مثال: المحكمة العمالية" class="dashboard-input">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">تاريخ الجلسة القادمة (اختياري)</label>
+                    <input type="date" id="case-date" class="dashboard-input">
+                </div>
+                <button type="submit" class="action-btn" style="margin-top: 1rem;">حفظ القضية</button>
             </form>
         </div>
     </div>
 
-    <!-- نافذة منبثقة لإضافة موعد أو جلسة جديدة -->
-    <div id="schedule-modal" class="article-modal-overlay" style="display: none;">
-        <div class="article-modal-content" style="max-width: 450px;">
-            <button class="modal-close-btn" id="schedule-modal-close" aria-label="إغلاق النافذة"><i data-lucide="x"></i></button>
-            <h3 style="margin-bottom: 1.5rem; color: var(--brand-dark); font-weight: 800;">إضافة موعد أو جلسة جديدة</h3>
-            <form id="add-schedule-form" style="display: flex; flex-direction: column; gap: 1rem;">
+    <!-- نافذة إضافة مستند -->
+    <div id="document-modal" class="article-modal-overlay" style="display: none;">
+        <div class="article-modal-content">
+            <button class="modal-close-btn" id="document-modal-close" aria-label="إغلاق النافذة"><i data-lucide="x"></i></button>
+            <h3 style="margin-bottom: 1.5rem; color: #3498db; font-weight: 800;">أرشفة مستند جديد</h3>
+            <form id="add-document-form" style="display: flex; flex-direction: column; gap: 1rem;">
                 <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-                    <label style="font-weight: 700; font-size: 0.9rem;">اسم العميل / الموكل</label>
-                    <input type="text" id="sched-name-input" placeholder="أدخل اسم العميل" required style="padding: 0.7rem; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">اسم المستند</label>
+                    <input type="text" id="doc-name" required class="dashboard-input">
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-                    <label style="font-weight: 700; font-size: 0.9rem;">نوع الموعد</label>
-                    <input type="text" id="sched-type-input" placeholder="مثال: جلسة مرافعة عمالية" required style="padding: 0.7rem; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">نوع المستند</label>
+                    <select id="doc-type" required class="dashboard-input">
+                        <option value="هوية/وكالة">مستندات شخصية (هوية، وكالة)</option>
+                        <option value="عقود">عقود واتفاقيات</option>
+                        <option value="مذكرات">مذكرات قانونية / لوائح</option>
+                        <option value="أحكام">أحكام وقرارات</option>
+                        <option value="أخرى">أخرى</option>
+                    </select>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-                    <label style="font-weight: 700; font-size: 0.9rem;">تاريخ ووقت الموعد</label>
-                    <input type="text" id="sched-date-input" placeholder="مثال: 15 أغسطس 2026 - 10:00 ص" required style="padding: 0.7rem; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">ارتباط المستند (اسم الموكل)</label>
+                    <select id="doc-client" required class="dashboard-input"></select>
                 </div>
-                <button type="submit" class="action-btn" style="margin-top: 1rem; padding: 0.7rem; font-size: 1rem;">حفظ الموعد</button>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">الرابط السحابي (Google Drive)</label>
+                    <input type="url" id="doc-link" required placeholder="https://drive.google.com/..." class="dashboard-input" dir="ltr" style="text-align: left;">
+                </div>
+                <button type="submit" class="action-btn" style="margin-top: 1rem; background: #3498db;">حفظ في الأرشيف</button>
             </form>
         </div>
     </div>
 
-    <!-- استدعاء ملفات الجافاسكريبت -->
+    <!-- نافذة إضافة دفعة مالية -->
+    <div id="finance-modal" class="article-modal-overlay" style="display: none;">
+        <div class="article-modal-content">
+            <button class="modal-close-btn" id="finance-modal-close" aria-label="إغلاق النافذة"><i data-lucide="x"></i></button>
+            <h3 style="margin-bottom: 1.5rem; color: var(--dash-gold); font-weight: 800;">تسجيل أتعاب جديدة</h3>
+            <form id="add-finance-form" style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">الموكل</label>
+                    <select id="fin-client" required class="dashboard-input"></select>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">الخدمة / القضية</label>
+                    <input type="text" id="fin-service" required class="dashboard-input">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">إجمالي الأتعاب المتفق عليها (ر.س)</label>
+                    <input type="number" id="fin-total" required class="dashboard-input" min="0">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                    <label style="font-weight: 700; font-size: 0.9rem;">المبلغ المدفوع (ر.س)</label>
+                    <input type="number" id="fin-paid" required class="dashboard-input" min="0">
+                </div>
+                <button type="submit" class="action-btn" style="margin-top: 1rem; background: var(--dash-gold);">حفظ الدفعة</button>
+            </form>
+        </div>
+    </div>
+
     <script src="dashboard.js"></script>
-    <script src="app.js"></script>
     <script>
         lucide.createIcons();
     </script>

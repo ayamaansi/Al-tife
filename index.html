@@ -17,6 +17,9 @@
     
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Preload Hero Background Image for Faster Loading -->
+    <link rel="preload" as="image" href="hero-bg.jpg">
 </head>
 <body>
 
@@ -123,7 +126,7 @@
                     </div>
                     <div class="why-us-img-col">
                         <div class="calm-image-frame">
-                            <img src="why-us-calm.jpg" alt="خلفية هادئة تعبر عن الدقة والاحترافية" class="calm-img">
+                            <img src="why-us-calm.jpg" alt="خلفية هادئة تعبر عن الدقة والاحترافية" class="calm-img" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -135,7 +138,7 @@
             <div class="container">
                 <div class="qp-grid">
                     <div class="floating-card-container">
-                        <img src="hero-consultation.jpg" alt="جلسة استشارية قانونية" class="bg-consultation-img">
+                        <img src="hero-consultation.jpg" alt="جلسة استشارية قانونية" class="bg-consultation-img" loading="lazy">
                         
                         <div class="floating-q-card">
                             <div class="q-card-header">
@@ -249,43 +252,27 @@
         <section id="contact" class="contact-section">
             <div class="container">
                 
-                <div class="cta-direct-card">
-                    <a href="https://wa.me/966536939093?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D9%8A%D8%A9" target="_blank" class="btn-book-cta">
-                        <span>احجز استشارتك</span>
-                        <i data-lucide="arrow-left"></i>
-                    </a>
-
-                    <div class="direct-channels-box">
-                        <h3 class="channels-title">قنوات التواصل المباشر</h3>
+                <div class="contact-grid-wrapper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    
+                    <!-- نموذج التسجيل (Form) الجديد -->
+                    <div class="contact-form-card" style="background: var(--secondary-bg); padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                        <h3 style="color: var(--brand-dark); margin-bottom: 0.5rem; font-size: 1.5rem; font-weight: 800;">طلب استشارة أو توكيل</h3>
+                        <p style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.95rem;">سجلي بياناتك وسيتم التواصل معكِ أو إدراجك في لوحة تحكم المكتب فوراً.</p>
                         
-                        <div class="channel-item">
-                            <div class="channel-icon"><i data-lucide="phone"></i></div>
-                            <div class="channel-info">
-                                <span class="channel-label">اتصل بنا مباشرة</span>
-                                <a href="tel:+966536939093" class="channel-value" dir="ltr">+966 53 693 9093</a>
-                            </div>
-                        </div>
-
-                        <div class="channel-item">
-                            <div class="channel-icon"><i data-lucide="map-pin"></i></div>
-                            <div class="channel-info">
-                                <span class="channel-label">الموقع الرسمي</span>
-                                <span class="channel-value">المدينة المنورة، المملكة العربية السعودية</span>
-                            </div>
-                        </div>
-
-                        <div class="channel-item">
-                            <div class="channel-icon"><i data-lucide="share-2"></i></div>
-                            <div class="channel-info">
-                                <span class="channel-label">شبكات التواصل الاجتماعي</span>
-                                <div class="social-tags">
-                                    <a href="https://x.com/tiaflaw" target="_blank">تويتر (X)</a> • 
-                                    <a href="https://wa.me/966536939093" target="_blank">واتساب</a>
-                                </div>
-                            </div>
-                        </div>
+                        <form id="website-contact-form" style="display: flex; flex-direction: column; gap: 1rem;">
+                            <input type="text" id="contact-name" placeholder="الاسم الكامل" required style="padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 1rem; background: transparent; color: var(--text-primary);">
+                            <input type="tel" id="contact-phone" placeholder="رقم الجوال" required style="padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 1rem; background: transparent; color: var(--text-primary);">
+                            <select id="contact-service" required style="padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 1rem; background: var(--secondary-bg); color: var(--text-primary);">
+                                <option value="" disabled selected>اختر الخدمة المطلوبة</option>
+                                <option value="تأسيس شركات">تأسيس شركات (شركات)</option>
+                                <option value="استشارة قانونية">استشارة قانونية</option>
+                                <option value="قضية عمالية">قضية عمالية (أفراد)</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                            <button type="submit" id="contact-submit-btn" class="btn btn-outline-green" style="background: var(--brand-primary); color: white; border: none; font-weight: 700; cursor: pointer;">إرسال الطلب الآن</button>
+                            <p id="contact-status-msg" style="display: none; margin-top: 1rem; font-weight: 700; text-align: center; padding: 0.8rem; border-radius: 8px;"></p>
+                        </form>
                     </div>
-                </div>
 
                 <div class="contact-details-card">
                     <div class="card-header-flex">
@@ -330,7 +317,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> <!-- نهاية contact-grid-wrapper -->
 
 <div class="map-container" style="margin-top: 2rem;">
     <iframe

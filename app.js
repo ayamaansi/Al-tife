@@ -227,3 +227,62 @@ if (modalCloseBtn && articleModal) {
         }
     });
 }
+
+// --- ربط نموذج التسجيل بجداول جوجل (Google Sheets) ---
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz_YOUR_SCRIPT_ID_HERE/exec"; // يجب تغييره بالرابط الصحيح
+
+const contactForm = document.getElementById("website-contact-form");
+const contactStatusMsg = document.getElementById("contact-status-msg");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById("contact-name").value.trim();
+        const phone = document.getElementById("contact-phone").value.trim();
+        const service = document.getElementById("contact-service").value;
+        const submitBtn = document.getElementById("contact-submit-btn");
+
+        if (!name || !phone || !service) return;
+
+        // تعطيل الزر أثناء الإرسال
+        submitBtn.disabled = true;
+        submitBtn.textContent = "جاري الإرسال...";
+        submitBtn.style.opacity = "0.7";
+        contactStatusMsg.style.display = "none";
+
+        try {
+            // إرسال البيانات إلى Google Apps Script
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8",
+                },
+                body: JSON.stringify({
+                    name: name,
+                    phone: phone,
+                    service: service,
+                    date: new Date().toLocaleDateString('ar-EG'),
+                    status: "جديد"
+                })
+            });
+
+            // نظراً لاستخدام no-cors نعرض رسالة النجاح فوراً
+            contactStatusMsg.textContent = "تم استلام طلبك بنجاح! سيتم التواصل معك قريباً.";
+            contactStatusMsg.style.color = "var(--brand-primary)";
+            contactStatusMsg.style.display = "block";
+            contactForm.reset();
+
+        } catch (error) {
+            console.error("Error:", error);
+            contactStatusMsg.textContent = "حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.";
+            contactStatusMsg.style.color = "#e74c3c";
+            contactStatusMsg.style.display = "block";
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "إرسال الطلب الآن";
+            submitBtn.style.opacity = "1";
+        }
+    });
+}
