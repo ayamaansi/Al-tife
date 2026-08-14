@@ -2,34 +2,63 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. نظام تفعيل الدارك واللايت مود مع حفظ الاختيار
     const themeToggleBtn = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
-    
+
     const savedTheme = localStorage.getItem("theme") || "light";
+
     document.documentElement.setAttribute("data-theme", savedTheme);
-    if(themeIcon) {
-        themeIcon.setAttribute("data-lucide", savedTheme === "dark" ? "sun" : "moon");
+
+    if (themeIcon) {
+        themeIcon.setAttribute(
+            "data-lucide",
+            savedTheme === "dark" ? "sun" : "moon"
+        );
     }
-document.addEventListener("DOMContentLoaded", () => {
-    // التحقق من حالة تسجيل الدخول وتعديل أزرار الهيدر إن وجدت
-    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-    
-    // يمكنك البحث عن عنصر معين في الهيدر لتغيير مظهره بناءً على حالة الدخول
-    // (اختياري حسب رغبتك في تطوير الواجهة لاحقاً)
-});
+
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener("click", () => {
-            const currentTheme = document.documentElement.getAttribute("data-theme");
-            const newTheme = currentTheme === "dark" ? "light" : "dark";
-            
-            document.documentElement.setAttribute("data-theme", newTheme);
+            const currentTheme =
+                document.documentElement.getAttribute("data-theme");
+
+            const newTheme =
+                currentTheme === "dark" ? "light" : "dark";
+
+            document.documentElement.setAttribute(
+                "data-theme",
+                newTheme
+            );
+
             localStorage.setItem("theme", newTheme);
-            
-            if(themeIcon) {
-                themeIcon.setAttribute("data-lucide", newTheme === "dark" ? "sun" : "moon");
+
+            if (themeIcon) {
+                themeIcon.setAttribute(
+                    "data-lucide",
+                    newTheme === "dark" ? "sun" : "moon"
+                );
+
                 lucide.createIcons();
             }
         });
     }
 
+    // 2. التحقق من حالة تسجيل الدخول
+    const isLoggedIn =
+        localStorage.getItem("isLoggedIn") === "true";
+
+    // يمكنك إضافة أي تعاملات خاصة بحالة تسجيل الدخول هنا
+
+
+    // 3. القائمة المنسدلة لشاشات الموبايل
+    const mobileToggle =
+        document.getElementById("mobile-toggle");
+
+    const navMenu =
+        document.getElementById("nav-menu");
+
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+    }
     // 2. القائمة المنسدلة لشاشات الموبايل
     const mobileToggle = document.getElementById("mobile-toggle");
     const navMenu = document.getElementById("nav-menu");
