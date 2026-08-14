@@ -1562,3 +1562,27 @@ body {
     line-height: 2;
     color: var(--text-secondary);
 }
+.hero-main-title {
+    color: #0D2B1F !important; /* اللون الأخضر الغامق للمكتب، أو يمكنك إبداله بأي لون ترغبينه */
+    text-shadow: none !important;
+}
+
+.hero-main-desc {
+    color: #C48A65 !important; /* اللون الذهبي أو البرونزي، أو يمكنك جعله أسود #000000 */
+    text-shadow: none !important;
+}
+/* الشعار الافتراضي في الوضع العادي (اللايت) يكون اللوجو الأخضر */
+.brand .logo-img {
+    content: url('logo-green.png');
+}
+
+/* الشعار في الوضع الداكن (الدارك) يتحول ليكون اللوجو العادي */
+[data-theme="dark"] .brand .logo-img {
+    content: url('logo.png');
+}
+/* تكبير وتثبيت مقاس الشعار الأخضر في الوضع الفاتح بالذات */
+.brand .logo-img {
+    height: 65px !important; /* يمكنك زيادة هذا الرقم أو تقليله حتى يضبط معكِ تماماً */
+    width: auto !important;
+    object-fit: contain !important;
+}
