@@ -2,9 +2,12 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  // هذا السطر أساسي لكي تتعرف صفحة غيت هب على مسارات مشروعك بشكل صحيح
   base: '/Al-tife/',
 
   build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
