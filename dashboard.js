@@ -114,15 +114,16 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderClientsTable() {
         if (!clientsTableBody) return;
         if (officialClients.length === 0) {
-            clientsTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:2rem; color:var(--dash-text-muted);">لا يوجد موكلين رسميين مسجلين.</td></tr>`;
+            clientsTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:2rem; color:var(--dash-text-muted);">لا يوجد موكلين رسميين مسجلين.</td></tr>`;
         } else {
-            clientsTableBody.innerHTML = officialClients.map(cl => `
+            clientsTableBody.innerHTML = officialClients.map((cl, index) => `
                 <tr>
                     <td><strong>${cl.name}</strong></td>
                     <td>${cl.idNumber}</td>
                     <td>${cl.poa || '-'}</td>
                     <td dir="ltr">${cl.phone}</td>
                     <td><span class="badge completed">سارية</span></td>
+                    <td><button class="action-btn" style="background:transparent; color:#e74c3c; padding:0.3rem;" onclick="deleteClient(${index})"><i data-lucide="trash-2" style="width:18px;height:18px;"></i></button></td>
                 </tr>
             `).join('');
         }
@@ -136,20 +137,21 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderCasesTables() {
         if (!casesTableBody || !upcomingHearingsBody) return;
         if (legalCases.length === 0) {
-            casesTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:2rem; color:var(--dash-text-muted);">لا توجد قضايا مسجلة.</td></tr>`;
-            upcomingHearingsBody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:2rem; color:var(--dash-text-muted);">لا توجد جلسات محددة.</td></tr>`;
+            casesTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:2rem; color:var(--dash-text-muted);">لا توجد قضايا مسجلة.</td></tr>`;
+            upcomingHearingsBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:2rem; color:var(--dash-text-muted);">لا توجد جلسات محددة.</td></tr>`;
         } else {
-            casesTableBody.innerHTML = legalCases.map(c => `
-                <tr><td><strong>${c.caseNumber}</strong></td><td>${c.clientName}</td><td>${c.opponent || '-'}</td><td>${c.court}</td><td><span class="badge pending">منظورة</span></td></tr>
+            casesTableBody.innerHTML = legalCases.map((c, index) => `
+                <tr><td><strong>${c.caseNumber}</strong></td><td>${c.clientName}</td><td>${c.opponent || '-'}</td><td>${c.court}</td><td><span class="badge pending">منظورة</span></td><td><button class="action-btn" style="background:transparent; color:#e74c3c; padding:0.3rem;" onclick="deleteCase(${index})"><i data-lucide="trash-2" style="width:18px;height:18px;"></i></button></td></tr>
             `).join('');
 
             const hearings = legalCases.filter(c => c.date).sort((a,b) => new Date(a.date) - new Date(b.date));
             if(hearings.length === 0) {
-                upcomingHearingsBody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:2rem; color:var(--dash-text-muted);">لا توجد جلسات محددة.</td></tr>`;
+                upcomingHearingsBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:2rem; color:var(--dash-text-muted);">لا توجد جلسات محددة.</td></tr>`;
             } else {
-                upcomingHearingsBody.innerHTML = hearings.map(h => `
-                    <tr><td><strong>${h.caseNumber}</strong></td><td>${h.clientName}</td><td>${h.court}</td><td dir="ltr" style="font-weight:bold; color:var(--dash-gold);">${h.date}</td><td><button class="action-btn" style="background:var(--dash-gold); color:white; padding:0.2rem 0.5rem; font-size:0.8rem;">تأجيل</button></td></tr>
-                `).join('');
+                upcomingHearingsBody.innerHTML = hearings.map(h => {
+                    const origIndex = legalCases.indexOf(h);
+                    return `<tr><td><strong>${h.caseNumber}</strong></td><td>${h.clientName}</td><td>${h.court}</td><td dir="ltr" style="font-weight:bold; color:var(--dash-gold);">${h.date}</td><td style="display:flex;gap:0.5rem;"><button class="action-btn" style="background:var(--dash-gold); color:white; padding:0.2rem 0.5rem; font-size:0.8rem;">تأجيل</button><button class="action-btn" style="background:transparent; color:#e74c3c; padding:0.2rem 0.5rem;" onclick="deleteCase(${origIndex})"><i data-lucide="trash-2" style="width:16px;height:16px;"></i></button></td></tr>`;
+                }).join('');
             }
         }
     }
@@ -245,6 +247,22 @@ document.addEventListener("DOMContentLoaded", () => {
             websiteRequests.splice(index, 1);
             refreshAllViews();
             alert("تم إضافة الموكل بنجاح!");
+        }
+    };
+
+    window.deleteClient = function(index) {
+        if(confirm("هل أنت متأكد من حذف هذا الموكل؟ سيتم حذفه من النظام.")) {
+            officialClients.splice(index, 1);
+            localStorage.setItem("officialClients", JSON.stringify(officialClients));
+            refreshAllViews();
+        }
+    };
+
+    window.deleteCase = function(index) {
+        if(confirm("هل أنت متأكد من حذف هذه القضية / الجلسة؟")) {
+            legalCases.splice(index, 1);
+            localStorage.setItem("legalCases", JSON.stringify(legalCases));
+            refreshAllViews();
         }
     };
 
